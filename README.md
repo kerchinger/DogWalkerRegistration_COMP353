@@ -1,2 +1,1 @@
-# COMP363_FinalProject
-
+# COMP363_FinalProject Dog Walking App
