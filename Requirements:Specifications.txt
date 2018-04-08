@@ -1,0 +1,51 @@
+Database Programming
+Web Database Project
+
+
+You are required to create a project and present this project to the class at the end of the semester.  You may work on teams (size to be determined in class).
+
+The project may be any type of web database project, or some type of project requiring complex querying.  Possible project topics are a shopping cart system, a help-desk type of system, an email notification system, or practically any kind of system that would require some kind of server-side connectivity.  There are many sample projects, some in your texts, and many available elsewhere.  You are not required to build the project from scratch.  You may use one of the projects that were demonstrated in class, or build upon examples that were used in labs.  However, you must modify the code to your specifications.
+
+The application requirements of the project:
+
+1. Assume that this is a database for an organization/business.  What is the title of this application?
+2. What is the organization/business for whom this application is being developed?
+3. What is the mission of this organization?
+4. What is the purpose of this application?
+5. Why will this application support the mission of the organization?
+6. Provide an ER diagram of the database, before any structural changes are made.
+7. Walk through how this application is used, both as a user and as an adminstrator.
+8. During your demonstration, be sure to point out the technical specifications below. But make sure that the technical features make sense in the context of your application.  For example, if you are demonstrating an aggregate function, you might say, "This is a query that tells us how many orders each customer has placed.  This is useful if we are trying to analyze repeat business."
+9. You will proabably find it easier to take screen shots of your data entry, validation and queries, and paste them into PPT slides.  In this way, your presentation will be smoother, you won't rely upon scrolling through results or navigating through your application during your presentation.  In addition, you won't have any unpleasant surprises if your server goes down or any other unanticipated issues arise.
+10. Provide an ER Diagram of the database, after any structural changes that you have made.
+
+
+Some of the technical specifications/components of the project:
+1. The project should be written using PHP and MySQL.
+2. You may add css and/or javascript, but the emphasis in this course is on database programming.
+3. Include at least one structural change to the database using DDL.  (Create, Alter, Drop). Clearly, your application will be written on one version of the design.  So you may satisfy this requirement by discussing what changes in the business requirements might precipitate a change in the design, and how would you implement that?  An example would be:  the design is based on the reality that every employee is assigned to exactly one department.  But the company has changed its management structure to a more project-based structure, and now, employees can be assigned to multiple departments.  This necessitates a change in the cardinaly of department:employee from 1:n to m:n.  This now requires a new relationship entity.  Other examples might include changing the format of a zip code from XXXXX to XXXXX-xxxx.
+4. Provide the INSERT SQL for initially populating the database.
+5. Include at least one INSERT that will occur during the execution of the application.  This will most likely be as the result of a transaction or user that should be added to the database.  Unless there is a good reason not to do so, use a "prepared" statement for your query, using variable parameters and bindvalues, as discussed in class and lab.
+6. Include at least one DELETE.
+7. Include at least one simple SELECT SQL statement.
+8. Inlcude at least one SELECT using an aggregate function.
+9. Include at least one SELECT using a compound condition.
+10. Include at least ond JOIN query.  This can be an inner or outer join.  It will be probably be an inner join.
+11. Excellence points:  use a correlated subquery.
+12. Include at least one subquery.
+13. Use a form to collect user data.  Pass variables to the next page (or postback) using POST.
+14. Use one GET to pass data to another page.
+15. Populate a field on a form or table from the database.
+16. Login and password using bcrypt.  (Password hash and password verify currently in PHP.)
+17. Check for empty data fields. (You can use javascript for this if you want, or PHP if you are not familiar with javascript.)
+18. Implement one trigger.  Demonstrate what happens when it is implemented.
+19. Implement referential intergrity.  Demonstrate what happens when it is violated. Or, if you constructed your program so that it can't be violated, demonstrate how it references a primary key and prevents a vioaltion of referential intergrity.  For example, if employee has a foreign key deptNo that references the primary key deptNo in the relation Department.  If you populate a drop-down box with existing department numbers, this will prevent the user from entering an invalid department number, thereby enforcing referential integrity.  If you just have a text box, the user can enter a department number that doesn't exist, and you can demonstrate that this will cause a referential integrity error.  Either method is fine, but be clear on what you are trying to achieve and demonstrate.
+20. Implement one transaction.  Show the impact on the DB or the application.
+
+The more complicated your queries, the more points you will recieve.
+Emphases will be on understanding the business value of the system and knowing how to apply the appropriate technologies to the business needs as well as on demonstrating proficiency in the ability to model a database and query its contents.
+
+What to submit:  (See Presentation Guidelines for more detail)
+1. Your PPT presentation.
+2. A zip file with your entire application.  This can be saved on our server, or on box.com, or any other method that I can access.  If it's too large to save/upload, then supplement with additional screen shots, and meet with me so that I can review it.
+3. A short report, listing the points listed above, with a short explanation of how you have included each one.
