@@ -9,10 +9,18 @@ The project may be any type of web database project, or some type of project req
 The application requirements of the project:
 
 1. Assume that this is a database for an organization/business.  What is the title of this application?
+DogWalking Reservation System
+
 2. What is the organization/business for whom this application is being developed?
+We are developing this application for a business that needs to improve the scheduling of DogWalkers to walk dogs.
+
 3. What is the mission of this organization?
+
 4. What is the purpose of this application?
+For owners to schedule their dogs to be walked and for dog walkers to manage the walks.
+
 5. Why will this application support the mission of the organization?
+
 6. Provide an ER diagram of the database, before any structural changes are made.
 7. Walk through how this application is used, both as a user and as an adminstrator.
 8. During your demonstration, be sure to point out the technical specifications below. But make sure that the technical features make sense in the context of your application.  For example, if you are demonstrating an aggregate function, you might say, "This is a query that tells us how many orders each customer has placed.  This is useful if we are trying to analyze repeat business."
