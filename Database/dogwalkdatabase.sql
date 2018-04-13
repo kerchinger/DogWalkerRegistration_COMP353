@@ -70,7 +70,7 @@ create table invoice(
   `reservation_ID` int(9) NOT NULL,
   `status` char NOT NULL, /* 0 or 1: 1 for paid, 0 for not paid*/
   `amount` int(9) NOT NULL,
-  `date` varchar(10) NOT NULL, /*Note: this is not date of the dog walking but data invoice was created*/
+  `date` varchar(10) NOT NULL default CURRENT_TIMESTAMP, /*Note: this is not date of the dog walking but data invoice was created*/
   primary key (`invoice_ID`),
   foreign key (`client_ID`) references client (`client_ID`),
   foreign key (`reservation_ID`) references reservation (`reservation_ID`)
