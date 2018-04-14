@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- Template by Quackit.com -->
 <!-- Images by various sources under the Creative Commons CC0 license and/or the Creative Commons Zero license.
@@ -36,7 +37,7 @@ Although you can use them, for a more unique website, replace these images with 
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href=admin.php>Admin</a>
+                        <a href="admin/admin_login.php">Admin</a>
                     </li>
                     <li>
                         <a href=#>Another_button?</a> <!-- WE CAN ATTACH ANOTHER PHP DOCUMENT at # -->

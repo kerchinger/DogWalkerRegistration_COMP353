@@ -80,7 +80,7 @@ create table dogwalker_admin(
   `admin_ID` int(9) NOT NULL,
   `dogwalker_ID` int(9) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(300) NOT NULL,
   primary key (`admin_ID`),
   foreign key (`dogwalker_ID`) references dog_walker (`dogwalker_ID`)
 );
@@ -95,4 +95,8 @@ create table dogwalker_schedule(
 );
 
 /*Populating the table:  */
-insert into dogwalking_bussiness value (111111111, "dogwalk@gmail.com", "1-800-364-9255", "1000 DogWalking ln, Chicago, IL 60660")
+insert into dogwalking_bussiness value (111111111, "dogwalk@gmail.com", "1-800-364-9255", "1000 DogWalking ln, Chicago, IL 60660");
+
+insert into dog_walker value (000000001, 111111111, 15, 2, 4, 100, 60660);
+
+insert into dogwalker_admin value (123456789, 000000001, "kyle", "$2y$10$xb.jMglTA3L8JcbDooiL9eVdVviWP4mzpTCji2rUwhBNstp1lBhFC");
