@@ -15,7 +15,7 @@ drop table if exists dogwalking_bussiness;
 create table dogwalking_bussiness(
   `bussiness_ID` int(9) NOT NULL,
   `e-mail` varchar(30) NOT NULL,
-  `phone_number` int(10) NOT NULL,
+  `phone_number` varchar(15) NOT NULL,
   `address` varchar(72) NOT NULL,
   primary key (`bussiness_ID`)
 );
@@ -70,7 +70,7 @@ create table invoice(
   `reservation_ID` int(9) NOT NULL,
   `status` char NOT NULL, /* 0 or 1: 1 for paid, 0 for not paid*/
   `amount` int(9) NOT NULL,
-  `date` varchar(10) NOT NULL default CURRENT_TIMESTAMP, /*Note: this is not date of the dog walking but data invoice was created*/
+  `date` varchar(10) NOT NULL, /*default CURRENT_TIMESTAMP, Note: this is not date of the dog walking but data invoice was created*/
   primary key (`invoice_ID`),
   foreign key (`client_ID`) references client (`client_ID`),
   foreign key (`reservation_ID`) references reservation (`reservation_ID`)
@@ -95,3 +95,4 @@ create table dogwalker_schedule(
 );
 
 /*Populating the table:  */
+insert into dogwalking_bussiness value (111111111, "dogwalk@gmail.com", "1-800-364-9255", "1000 DogWalking ln, Chicago, IL 60660")

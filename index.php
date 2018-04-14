@@ -59,6 +59,22 @@ Although you can use them, for a more unique website, replace these images with 
 
 
 <!-- NEED TO INCLUDE A CALL TO THE DATABASE TO COLLECT THE HOTEL INFORMATION -->
+<?php
+
+include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.inc.php';
+
+Try
+{
+  $sql = 'SELECT * FROM `dogwalking_bussiness`';
+  $dogbussiness_contactinfo = $pdo->query($sql);
+}
+catch (PDOException $e)
+{
+  $error = 'Error fetching departments: ' . $e->getMessage();
+  include 'errors/error.php';
+  exit();
+}
+?>
 
 	<!-- Footer -->
     <footer class="page-footer">
@@ -66,9 +82,12 @@ Although you can use them, for a more unique website, replace these images with 
         <div class="contact">
         	<div class="container">
 				<h2 class="section-heading">Contact Us</h2>
-				<p><span class="glyphicon glyphicon-earphone"></span><br> +1(23) 456 7890</p>
-				<p><span class="glyphicon glyphicon-envelope"></span><br> info@example.com</p>
-        	</div>
+        <?php foreach ($dogbussiness_contactinfo as $info): ?>
+				<p><span class="glyphicon glyphicon-earphone"></span><br> <?php echo $info['phone_number']; ?></p>
+				<p><span class="glyphicon glyphicon-envelope"></span><br> <?php echo $info['e-mail']; ?></p>
+        <p><span class="glyphicon glyphicon-home"></span><br> <?php echo $info['address']; ?></p>
+      <?php endforeach; ?>
+          </div>
         </div>
 
         <!-- Copyright etc -->

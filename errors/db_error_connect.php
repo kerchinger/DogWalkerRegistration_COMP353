@@ -1,4 +1,3 @@
-<?php include 'view/header.php'; ?>
 <div id="content">
     <h1>Database Error</h1>
     <p>An error occurred connecting to the database.</p>
