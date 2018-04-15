@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/header.php' ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/admin/header_admin.php' ?>
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.inc.php';
 ?>
@@ -26,7 +26,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.in
         $userx->execute([$userlogin]);
         $user11 = $userx->fetch();
 	      if (password_verify($userpwd,$user11['password'])){
-          session_reset();
+          session_start();
           $_SESSION['userlogin'] = $userlogin;
           $_SESSION['bussiness_ID'] = $user11['bussiness_ID'];
           $_SESSION['zip_code'] = $user11['zip_code'];
