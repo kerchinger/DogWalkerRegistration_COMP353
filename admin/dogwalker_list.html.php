@@ -42,13 +42,17 @@ padding:5px;
           <input type="hidden" name="deleteWalker" value="<?php echo $walker['dogwalker_ID']; ?>">
          <input type="submit" value="Delete Walker">
         </form>
-        <form action="?editWalker" method=post"">
+        <form action="?editWalker" method="post">
           <input type="hidden" name="editWalker" value="<?php echo $walker['dogwalker_ID']; ?>">
          <input type="submit" value="Edit Walker">
         </form>
-        <form action="?editClients" method=post"">
+        <form action="?editClients" method="post">
           <input type="hidden" name="editClients" value="<?php echo $walker['dogwalker_ID']; ?>">
          <input type="submit" value="Edit Clients">
+        </form>
+        <form action="?editSchedule" method="post">
+          <input type="hidden" name="editSchedule" value="<?php echo $walker['dogwalker_ID']; ?>">
+         <input type="submit" value="Edit Schedule">
         </form>
       </td>
       </tr>

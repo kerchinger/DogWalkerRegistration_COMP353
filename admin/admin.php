@@ -92,20 +92,56 @@ if (isset($_GET['deleteWalker']))
   exit();
 }
 
-
 if (isset($_GET['editWalker']))
 {
-  //session_reset();
-  $_SESSION['dogwalkerID'] = $_GET['dogwalker_ID'];
   include 'editWalkerInfo.php';
   exit();
 }
 
-
-
 if (isset($_GET['editClients']))
 {
   include "editClientsInfo.php";
+  exit();
+}
+
+if (isset($_GET['editSchedule']))
+{
+  include "editSchedule.php";
+  exit();
+}
+
+if(isset($_GET['submitUpdate']))
+{
+  try
+  {
+    $sql = 'UPDATE dog_walker SET
+        dogwalker_ID = :dogwalker_ID1,
+        bussiness_ID = :bussiness_ID1,
+        name = :name1,
+        hourly_rate = :hourly_rate1,
+        years_worked= :years_worked1,
+        starRating = :starRating1,
+        miles_traveled = :miles_traveled1,
+        zip_code = :zip_code1
+        WHERE dogwalker_ID = :dogwalker_ID1';
+    $s = $pdo->prepare($sql);
+    $s->bindValue(':dogwalker_ID1', $_GET['dogwalker_ID']);
+    $s->bindValue(':bussiness_ID1', $bussinessID);
+    $s->bindValue(':name1', $_GET['name']);
+    $s->bindValue(':hourly_rate1', $_GET['hourly_rate']);
+    $s->bindValue(':years_worked1', $_GET['years_worked']);
+    $s->bindValue(':starRating1', $_GET['starRating']);
+    $s->bindValue(':miles_traveled1', $_GET['miles_traveled']);
+    $s->bindValue(':zip_code1', $zipcode);
+    $s->execute();
+  }
+  catch (PDOException $e)
+  {
+    $error = 'Error updating walker ' . $e->getMessage();
+    include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/errors/error.php';
+    exit();
+  }
+  header('Location: admin.php');
   exit();
 }
 
