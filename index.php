@@ -29,8 +29,9 @@ Although you can use them, for a more unique website, replace these images with 
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                	<span class="glyphicon glyphicon-fire"></span>
+                	<span class="glyphicon glyphicon-heart"></span>
                 	DogWalk
+                  <span class="glyphicon glyphicon-heart"></span>
                 </a>
             </div>
             <!-- Navbar links -->
@@ -39,9 +40,9 @@ Although you can use them, for a more unique website, replace these images with 
                     <li>
                         <a href="admin/admin_login.php">Admin</a>
                     </li>
-                    <li>
-                        <a href=#>Another_button?</a> <!-- WE CAN ATTACH ANOTHER PHP DOCUMENT at # -->
-                    </li>
+                    <!-- <li>
+                        <a href=#>Another_button?</a> <!-- WE CAN ATTACH ANOTHER PHP DOCUMENT at #
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -53,7 +54,7 @@ Although you can use them, for a more unique website, replace these images with 
             <div class="header-content-inner">
                 <h1>Dog Walking</h1>
                 <p> A dog walking service you can rely on</p>
-                <a href="reserve.php" class="btn btn-primary btn-lg">Reserve now</a>
+                <a href="reserve/reserve.php" class="btn btn-primary btn-lg">Reserve now</a>
             </div>
         </div>
     </header>

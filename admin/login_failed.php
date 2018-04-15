@@ -1,7 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/header.php';
-exit():
-?>
-
+<?php include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/header.php' ?>
  <!DOCTYPE html>
  <html lang="en">
    <head>
