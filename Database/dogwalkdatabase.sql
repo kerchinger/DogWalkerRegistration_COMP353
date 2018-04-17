@@ -35,6 +35,8 @@ create table dog_walker(
 
 create table client(
   `client_ID` int(9) NOT NULL,
+  `username` varchar(30) NOT NULL UNIQUE,
+  `password` varchar(300) NOT NULL,
   `name` varchar(30) NOT NULL,
   `address` varchar(60) NOT NULL,
   `e-mail` varchar(30) NOT NULL,
@@ -81,7 +83,7 @@ create table dogwalker_admin(
   `admin_ID` int(9) NOT NULL,
   `dogwalker_ID` int(9) NOT NULL,
   `zip code` int(5) NOT NULL,
-  `username` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL UNIQUE,
   `password` varchar(300) NOT NULL,
   primary key (`admin_ID`),
   foreign key (`dogwalker_ID`) references dog_walker (`dogwalker_ID`)
@@ -102,3 +104,9 @@ insert into dogwalking_bussiness value (111111111, "dogwalk@gmail.com", "1-800-3
 insert into dog_walker value (000000001, 111111111, "Serina", 15, 2, 4, 100, 60660);
 
 insert into dogwalker_admin value (123456789, 000000001, 60660, "kyle", "$2y$10$xb.jMglTA3L8JcbDooiL9eVdVviWP4mzpTCji2rUwhBNstp1lBhFC");
+
+insert into client value (1000000000, "bob123", "$2y$10$xb.jMglTA3L8JcbDooiL9eVdVviWP4mzpTCji2rUwhBNstp1lBhFC", "Bob Smith", "6300 N Winthrop, CHicago, IL 60660", "bobsmith@gmail.com", "1-224-800-90000");
+
+insert into reservation value (2000000001, 000000001, 1000000000, "5/31/18", "9:00AM");
+
+insert into dog value (999000001, 1000000000, "Cheeto", "Y", "Poodle", "brown", "super cute adorable dog!");

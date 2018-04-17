@@ -54,7 +54,7 @@ Although you can use them, for a more unique website, replace these images with 
             <div class="header-content-inner">
                 <h1>Dog Walking</h1>
                 <p> A dog walking service you can rely on</p>
-                <a href="reserve/reserve.php" class="btn btn-primary btn-lg">Reserve now</a>
+                <a href="reserve/reserve_login.php" class="btn btn-primary btn-lg">Reserve now</a>
             </div>
         </div>
     </header>

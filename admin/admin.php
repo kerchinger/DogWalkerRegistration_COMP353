@@ -6,7 +6,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/admin/header_a
 include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.inc.php';
 
 
-session_start(); 
+session_start();
 $username = $_SESSION['userlogin'];
 
 try{
