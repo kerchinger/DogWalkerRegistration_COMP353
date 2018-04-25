@@ -11,7 +11,7 @@
        <input id='btn' name="retry" type='submit' value='retry'>
      <?php
      if(isset($_POST['retry'])){
-       header("Location: admin_login.php");
+       header("Location: admin.php");
      } ?>
      </form>
    </body>

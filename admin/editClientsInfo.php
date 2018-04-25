@@ -1,5 +1,11 @@
 <?php
-echo "EDIT Clients info Here";
-$dogwalkerID_X =  $_POST['editClients'];
-echo $dogwalkerID_X;
+include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.inc.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/login/checkPwdUsr.php';
+
+if (isUserLoggedIn() == FALSE)
+{
+  include 'admin_login.php';
+  exit();
+}
+
  ?>

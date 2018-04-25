@@ -1,4 +1,5 @@
 <?php include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.inc.php';
+// use a more complex query/like create a table and use a join. 
  ?>
 <html>
   <head>

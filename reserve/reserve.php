@@ -12,9 +12,15 @@ if(isset($_GET['reservation'])){
 
 
 try{
+  //Ask for clarification on writing it
   $query = "(SELECT client_ID FROM client WHERE username = '{$username}')";
   $sql2 = "SELECT * FROM reservation WHERE client_ID= {$query}";
   $reservATIONS= $pdo->query($sql2);
+
+
+  /*
+  SELECT * FROM client WHERE client_ID IN (SELECT client_ID FROM reservation WHERE reservation_date="");
+  */
 }
 catch (PDOException $e3)
 {

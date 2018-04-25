@@ -38,7 +38,7 @@ Although you can use them, for a more unique website, replace these images with 
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="admin/admin_login.php">Admin</a>
+                        <a href="admin/admin.php">Admin</a>
                     </li>
                     <!-- <li>
                         <a href=#>Another_button?</a> <!-- WE CAN ATTACH ANOTHER PHP DOCUMENT at #
@@ -64,6 +64,8 @@ Although you can use them, for a more unique website, replace these images with 
 <?php
 
 include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.inc.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/login/checkPwdUsr.php';
+logoutUser();
 
 Try
 {

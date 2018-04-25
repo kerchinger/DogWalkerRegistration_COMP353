@@ -36,8 +36,8 @@ body {
 <body>
 
 <div class="topnav">
-  <a class="active" href=/DogWalkerRegistration_COMP353/index.php>Home</a>
-  <a href=/DogWalkerRegistration_COMP353/admin/admin_login.php>Admin</a>
+<a class="active" href=/DogWalkerRegistration_COMP353/index.php>Home</a>
+  <!--  <a href=/DogWalkerRegistration_COMP353/admin/admin_login.php>admin</a>-->
 </div>
 
 </body>

@@ -2,11 +2,17 @@
 So each admin will be the administrator for for a group of walkers(which is based on Zip Code), and the admin will be able to also edit client data for each invidual walker
  -->
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/admin/header_admin.php';
+include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/header.php';
 include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.inc.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/login/checkPwdUsr.php';
 
 
-session_start();
+if (isUserLoggedIn() == FALSE)
+{
+  include 'admin_login.php';
+  exit();
+}
+
 $username = $_SESSION['userlogin'];
 
 try{
