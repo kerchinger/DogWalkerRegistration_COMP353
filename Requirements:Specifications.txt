@@ -29,26 +29,44 @@ For owners to schedule their dogs to be walked and for dog walkers to manage the
 
 
 Some of the technical specifications/components of the project:
-1. The project should be written using PHP and MySQL.
-2. You may add css and/or javascript, but the emphasis in this course is on database programming.
+*-------1. The project should be written using PHP and MySQL.
+*-------2. You may add css and/or javascript, but the emphasis in this course is on database programming.
 3. Include at least one structural change to the database using DDL.  (Create, Alter, Drop). Clearly, your application will be written on one version of the design.  So you may satisfy this requirement by discussing what changes in the business requirements might precipitate a change in the design, and how would you implement that?  An example would be:  the design is based on the reality that every employee is assigned to exactly one department.  But the company has changed its management structure to a more project-based structure, and now, employees can be assigned to multiple departments.  This necessitates a change in the cardinaly of department:employee from 1:n to m:n.  This now requires a new relationship entity.  Other examples might include changing the format of a zip code from XXXXX to XXXXX-xxxx.
-4. Provide the INSERT SQL for initially populating the database.
-5. Include at least one INSERT that will occur during the execution of the application.  This will most likely be as the result of a transaction or user that should be added to the database.  Unless there is a good reason not to do so, use a "prepared" statement for your query, using variable parameters and bindvalues, as discussed in class and lab.
-6. Include at least one DELETE.
-7. Include at least one simple SELECT SQL statement.
+  - ???
+
+*-------4. Provide the INSERT SQL for initially populating the database.
+*-------5. Include at least one INSERT that will occur during the execution of the application.  This will most likely be as the result of a transaction or user that should be added to the database.  Unless there is a good reason not to do so, use a "prepared" statement for your query, using variable parameters and bindvalues, as discussed in class and lab.
+*-------6. Include at least one DELETE.
+*-------7. Include at least one simple SELECT SQL statement.
 8. Inlcude at least one SELECT using an aggregate function.
+  - we can use this to collect stats about the dogwalkers, like how many walks, the dog walker has done, and miles, etc. Also, in conjuction with this, we can add a trigger for when every a dogwalker gets a new reservation, the information will be updated.
+
 9. Include at least one SELECT using a compound condition.
-10. Include at least ond JOIN query.  This can be an inner or outer join.  It will be probably be an inner join.
+  - I think this is just using multipe AND/OR statements, so it should be easy to implement
+
+*-------10. Include at least ond JOIN query.  This can be an inner or outer join.  It will be probably be an inner join.
 11. Excellence points:  use a correlated subquery.
 12. Include at least one subquery.
-13. Use a form to collect user data.  Pass variables to the next page (or postback) using POST.
-14. Use one GET to pass data to another page.
-15. Populate a field on a form or table from the database.
-16. Login and password using bcrypt.  (Password hash and password verify currently in PHP.)
+ - ??
+*-------13. Use a form to collect user data.  Pass variables to the next page (or postback) using POST.
+*-------14. Use one GET to pass data to another page.
+*-------15. Populate a field on a form or table from the database.
+*-------16. Login and password using bcrypt.  (Password hash and password verify currently in PHP.)
 17. Check for empty data fields. (You can use javascript for this if you want, or PHP if you are not familiar with javascript.)
-18. Implement one trigger.  Demonstrate what happens when it is implemented.
+  - ??
+
+*-------18. Implement one trigger.  Demonstrate what happens when it is implemented.
+  - When the trigger is implemented, after the client is deleted from the database, the dogs of the client will also be deleted
+  - We can setup a trigger that can be used to delete reservations from the system after a time has passed.
+    Or if client is deleted, we can have a trigger for the dog of that client to also be deleted.
+
 19. Implement referential intergrity.  Demonstrate what happens when it is violated. Or, if you constructed your program so that it can't be violated, demonstrate how it references a primary key and prevents a vioaltion of referential intergrity.  For example, if employee has a foreign key deptNo that references the primary key deptNo in the relation Department.  If you populate a drop-down box with existing department numbers, this will prevent the user from entering an invalid department number, thereby enforcing referential integrity.  If you just have a text box, the user can enter a department number that doesn't exist, and you can demonstrate that this will cause a referential integrity error.  Either method is fine, but be clear on what you are trying to achieve and demonstrate.
+   - This is just making sure that foreign and primary keys are not violated, so using drop down lists.
+
+
+
 20. Implement one transaction.  Show the impact on the DB or the application.
+  - I think we can use a transaction for when the person creates an account, we can have a query for the client name, and then at the same time the user can add a dog, and have a query for the day too.
 
 The more complicated your queries, the more points you will recieve.
 Emphases will be on understanding the business value of the system and knowing how to apply the appropriate technologies to the business needs as well as on demonstrating proficiency in the ability to model a database and query its contents.

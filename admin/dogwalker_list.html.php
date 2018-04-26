@@ -6,8 +6,8 @@
 <style>
 table,th,td
 {
-border:1px solid black;
-padding:5px;
+border:0.2px solid black;
+padding:2px;
 }
 </style>
 </head>
@@ -15,6 +15,8 @@ padding:5px;
 
     <p><a href="?addDogWalker">Add a Dog Walker</a></p>
     <p>Here are all your dog walkers for your Zip Code:</p>
+    <p><a href="?editSchedule">Edit Schedule</a></p>
+    <p><a href="?editClient">Edit Client</a></p>
 
     <table >
       <tr>
@@ -26,6 +28,7 @@ padding:5px;
          <td> <?php echo "starRating"; ?> </td>
          <td> <?php echo "miles_traveled"; ?> </td>
          <td> <?php echo "zip_code"; ?> </td>
+         <td> <?php echo "next_client_reservations"; ?> </td>
        </tr>
     <?php foreach ($dogwalkersX as $walker): ?>
       <tr>
@@ -38,6 +41,24 @@ padding:5px;
          <td> <?php echo $walker['miles_traveled']; ?> </td>
          <td> <?php echo $walker['zip_code']; ?> </td>
          <td>
+           <table >
+             <tr>
+              <td> <?php echo "reservation_ID"; ?> </td>
+              <td> <?php echo "client username"; ?> </td>
+              <td> <?php echo "walking_date"; ?> </td>
+              <td> <?php echo "walking_timeslot"; ?> </td>
+              </tr>
+               <?php foreach($reservationsX as $reservation): ?>
+                 <tr>
+                 <td><?php  echo $reservation[0] ?> </td>
+                 <td><?php  echo $reservation[1] ?> </td>
+                 <td><?php  echo $reservation[2] ?> </td>
+                 <td><?php  echo $reservation[3] ?> </td>
+                  <?php endforeach; ?>
+                </tr>
+              </table>
+            </td>
+         <td>
          <form action="?deleteWalker" method="post">
           <input type="hidden" name="deleteWalker" value="<?php echo $walker['dogwalker_ID']; ?>">
          <input type="submit" value="Delete Walker">
@@ -46,13 +67,9 @@ padding:5px;
           <input type="hidden" name="editWalker" value="<?php echo $walker['dogwalker_ID']; ?>">
          <input type="submit" value="Edit Walker">
         </form>
-        <form action="?editClients" method="post">
-          <input type="hidden" name="editClients" value="<?php echo $walker['dogwalker_ID']; ?>">
-         <input type="submit" value="Edit Clients">
-        </form>
-        <form action="?editSchedule" method="post">
-          <input type="hidden" name="editSchedule" value="<?php echo $walker['dogwalker_ID']; ?>">
-         <input type="submit" value="Edit Schedule">
+        <form action="?editReservations" method="post">
+          <input type="hidden" name="editReservations" value="<?php echo $walker['dogwalker_ID']; ?>">
+         <input type="submit" value="Edit Reservations">
         </form>
       </td>
       </tr>

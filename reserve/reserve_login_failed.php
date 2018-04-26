@@ -7,11 +7,11 @@
    </head>
    <body>
      <p>Login Failed</p>
-     <form action="login_failed.php" id="#form" method="post" name="#form">
+     <form action="reserve_login_failed.php" id="#form" method="post" name="#form">
        <input id='btn' name="retry" type='submit' value='retry'>
      <?php
      if(isset($_POST['retry'])){
-       header("Location: reserv_login.php");
+       header("Location: reserve_login.php");
      } ?>
      </form>
    </body>

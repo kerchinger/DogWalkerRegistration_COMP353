@@ -14,7 +14,7 @@ drop table if exists dogwalking_bussiness;
 
 create table dogwalking_bussiness(
   `bussiness_ID` int(9) NOT NULL,
-  `e-mail` varchar(30) NOT NULL,
+  `e_mail` varchar(30) NOT NULL,
   `phone_number` varchar(15) NOT NULL,
   `address` varchar(72) NOT NULL,
   primary key (`bussiness_ID`)
@@ -39,7 +39,7 @@ create table client(
   `password` varchar(300) NOT NULL,
   `name` varchar(30) NOT NULL,
   `address` varchar(60) NOT NULL,
-  `e-mail` varchar(30) NOT NULL,
+  `e_mail` varchar(30) NOT NULL,
   `phone_number` int(10) NOT NULL,
   primary key(`client_ID`)
 );

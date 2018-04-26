@@ -88,7 +88,7 @@ catch (PDOException $e)
 				<h2 class="section-heading">Contact Us</h2>
         <?php foreach ($dogbussiness_contactinfo as $info): ?>
 				<p><span class="glyphicon glyphicon-earphone"></span><br> <?php echo $info['phone_number']; ?></p>
-				<p><span class="glyphicon glyphicon-envelope"></span><br> <?php echo $info['e-mail']; ?></p>
+				<p><span class="glyphicon glyphicon-envelope"></span><br> <?php echo $info['e_mail']; ?></p>
         <p><span class="glyphicon glyphicon-home"></span><br> <?php echo $info['address']; ?></p>
       <?php endforeach; ?>
           </div>
