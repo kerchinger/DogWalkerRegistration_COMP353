@@ -3,6 +3,7 @@
 Dog walking Database, with table and populating some values
 */
 
+
 drop table if exists dogwalker_schedule;
 drop table if exists dogwalker_admin;
 drop table if exists invoice;
@@ -82,7 +83,7 @@ create table invoice(
 create table dogwalker_admin(
   `admin_ID` int(9) NOT NULL,
   `dogwalker_ID` int(9) NOT NULL,
-  `zip code` int(5) NOT NULL,
+  `zip_code` int(5) NOT NULL,
   `username` varchar(30) NOT NULL UNIQUE,
   `password` varchar(300) NOT NULL,
   primary key (`admin_ID`),
@@ -90,11 +91,11 @@ create table dogwalker_admin(
 );
 
 create table dogwalker_schedule(
-    `scheduled_slot` varchar(30) NOT NULL,
-    `date/time` varchar(30) NOT NULL,
     `dogwalker_ID` int(9) NOT NULL,
-    `taken/free` char NOT NULL, /* 0 or 1, 0 taken, 1 free */
-    primary key (`scheduled_slot`, `date/time`),
+    `time` varchar(30) NOT NULL,
+    `date` varchar(30) NOT NULL,
+    `taken/free` char NOT Null, /* 0 or 1, 1 taken, 0 free */
+    primary key (`time`, `date`),
     foreign key (`dogwalker_ID`) references dog_walker (`dogwalker_ID`)
 );
 
@@ -102,6 +103,7 @@ create table dogwalker_schedule(
 insert into dogwalking_bussiness value (111111111, "dogwalk@gmail.com", "1-800-364-9255", "1000 DogWalking ln, Chicago, IL 60660");
 
 insert into dog_walker value (000000001, 111111111, "Serina", 15, 2, 4, 100, 60660);
+insert into dog_walker value (000000002, 111111111, "Will", 10, 1, 4, 5, 60660);
 
 insert into dogwalker_admin value (123456789, 000000001, 60660, "kyle", "$2y$10$xb.jMglTA3L8JcbDooiL9eVdVviWP4mzpTCji2rUwhBNstp1lBhFC");
 
@@ -110,3 +112,45 @@ insert into client value (1000000000, "bob123", "$2y$10$xb.jMglTA3L8JcbDooiL9eVd
 insert into reservation value (2000000001, 000000001, 1000000000, "5/31/18", "9:00AM");
 
 insert into dog value (999000001, 1000000000, "Cheeto", "Y", "Poodle", "brown", "super cute adorable dog!");
+
+insert into dogwalker_schedule value (000000001, "9:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000001, "10:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000001, "11:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000001, "12:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000001, "13:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000001, "14:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000001, "15:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000001, "16:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000001, "17:00", "05-1-19", 1);
+
+insert into dogwalker_schedule value (000000002, "9:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000002, "10:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000002, "11:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000002, "12:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000002, "13:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000002, "14:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000002, "15:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000002, "16:00", "05-1-19", 1);
+insert into dogwalker_schedule value (000000002, "17:00", "05-1-19", 1);
+
+insert into dogwalker_schedule value (000000001, "9:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000001, "10:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000001, "11:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000001, "12:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000001, "13:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000001, "14:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000001, "15:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000001, "16:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000001, "17:00", "05-2-19", 1);
+
+insert into dogwalker_schedule value (000000002, "9:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000002, "10:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000002, "11:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000002, "12:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000002, "13:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000002, "14:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000002, "15:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000002, "16:00", "05-2-19", 1);
+insert into dogwalker_schedule value (000000002, "17:00", "05-2-19", 1);
+
+  

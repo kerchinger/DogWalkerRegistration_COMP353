@@ -53,7 +53,7 @@ Some of the technical specifications/components of the project:
 *-------15. Populate a field on a form or table from the database.
 *-------16. Login and password using bcrypt.  (Password hash and password verify currently in PHP.)
 17. Check for empty data fields. (You can use javascript for this if you want, or PHP if you are not familiar with javascript.)
-  - ??
+  - use in reservation form
 
 *-------18. Implement one trigger.  Demonstrate what happens when it is implemented.
   - When the trigger is implemented, after the client is deleted from the database, the dogs of the client will also be deleted
@@ -62,8 +62,6 @@ Some of the technical specifications/components of the project:
 
 19. Implement referential intergrity.  Demonstrate what happens when it is violated. Or, if you constructed your program so that it can't be violated, demonstrate how it references a primary key and prevents a vioaltion of referential intergrity.  For example, if employee has a foreign key deptNo that references the primary key deptNo in the relation Department.  If you populate a drop-down box with existing department numbers, this will prevent the user from entering an invalid department number, thereby enforcing referential integrity.  If you just have a text box, the user can enter a department number that doesn't exist, and you can demonstrate that this will cause a referential integrity error.  Either method is fine, but be clear on what you are trying to achieve and demonstrate.
    - This is just making sure that foreign and primary keys are not violated, so using drop down lists.
-
-
 
 20. Implement one transaction.  Show the impact on the DB or the application.
   - I think we can use a transaction for when the person creates an account, we can have a query for the client name, and then at the same time the user can add a dog, and have a query for the day too.
