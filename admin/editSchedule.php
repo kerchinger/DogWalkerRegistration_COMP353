@@ -7,5 +7,5 @@ if (isUserLoggedIn() == FALSE)
   include 'admin_login.php';
   exit();
 }
-echo "waiting for schedule to be written";
+echo "Work in Progress: Waiting for Schedule to be worked finnished" 
  ?>

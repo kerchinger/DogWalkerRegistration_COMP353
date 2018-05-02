@@ -10,14 +10,11 @@ if (isUserLoggedIn() == FALSE)
 }
 
 $username = $_SESSION['userlogin'];
+$zipcode = $_SESSION['zip_code'];
 
-
-
-//TODO should there also be an edit_dog for the clients???
-
-/*TODO MAKE QUERY MORE COMPLICTED AND GET INFO FROM THE username so that the query is only for the specific zip code */
 try{
-  $sql2 = "SELECT * FROM client";
+  $sql2 =  "SELECT * FROM dog_walker d, client c JOIN reservation r ON
+c.client_ID = r.client_ID WHERE d.dogwalker_ID = r.dogwalker_ID AND d.zip_code = {$zipcode};";;
   $clientList = $pdo->query($sql2);
 }
 catch (PDOException $e)
@@ -32,40 +29,15 @@ if (isset($_GET['returnHome'])){
   exit;
 }
 
+if (isset($_GET['deleteClient'])){
 
-
-if (isset($_GET['deleteReservation'])){
   try
   {
+
     $sql = 'DELETE FROM client WHERE client_ID = :client_ID';
     $s = $pdo->prepare($sql);
     $s->bindValue(':client_ID', $_POST['deleteClient']);
     $s->execute();
-
-//TODO make sure placement of trigger is correct.
-
-    try{
-      $sql6 = 'DELIMITER $$
-      CREATE TRIGGER after_client_delete
-          After DELETE ON client
-          FOR EACH ROW
-      BEGIN
-          DELETE FROM dog
-          WHERE client_ID =:client_ID1
-      END$$
-      DELIMITER';
-      $s1 = $pdo->prepare($sql6);
-      $s1->bindValue(':client_ID', $_POST['deleteClient']);
-      $clientList = $pdo->query($sql2);
-      $s1->execute();
-    }
-    catch (PDOException $e)
-    {
-      $error = 'Error deleting dog afer delete client: ' . $e->getMessage();
-      include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/errors/error.php';
-      exit();
-    }
-
 
   }
   catch (PDOException $e)
@@ -116,8 +88,6 @@ if(isset($_GET['submitUpdateClie']))
   header('Location: editClientsInfo.php');
   exit();
 }
-
-
 
 include 'client_list.html.php';
  ?>

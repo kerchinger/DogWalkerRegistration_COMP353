@@ -21,8 +21,6 @@ catch (PDOException $e)
   include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/errors/error.php';
   exit();
 }
-
-
 ?>
 
 <!DOCTYPE html>

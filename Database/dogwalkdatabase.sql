@@ -3,7 +3,6 @@
 Dog walking Database, with table and populating some values
 */
 
-
 drop table if exists dogwalker_schedule;
 drop table if exists dogwalker_admin;
 drop table if exists invoice;
@@ -54,7 +53,7 @@ create table dog (
   `hair_color` varchar(30),
   `notes` varchar(128),
   primary key (`dog_ID`),
-  foreign key (`client_ID`) references client (`client_ID`)
+  foreign key (`client_ID`) references client (`client_ID`) ON DELETE CASCADE
 );
 
 create table reservation(
@@ -95,7 +94,7 @@ create table dogwalker_schedule(
     `time` varchar(30) NOT NULL,
     `date` varchar(30) NOT NULL,
     `taken/free` char NOT Null, /* 0 or 1, 1 taken, 0 free */
-    primary key (`time`, `date`),
+    primary key (`time`, `date`, `dogwalker_ID`),
     foreign key (`dogwalker_ID`) references dog_walker (`dogwalker_ID`)
 );
 
@@ -108,10 +107,14 @@ insert into dog_walker value (000000002, 111111111, "Will", 10, 1, 4, 5, 60660);
 insert into dogwalker_admin value (123456789, 000000001, 60660, "kyle", "$2y$10$xb.jMglTA3L8JcbDooiL9eVdVviWP4mzpTCji2rUwhBNstp1lBhFC");
 
 insert into client value (1000000000, "bob123", "$2y$10$xb.jMglTA3L8JcbDooiL9eVdVviWP4mzpTCji2rUwhBNstp1lBhFC", "Bob Smith", "6300 N Winthrop, CHicago, IL 60660", "bobsmith@gmail.com", "1-224-800-90000");
+insert into client value (2000000, "john", "$2y$10$xb.jMglTA3L8JcbDooiL9eVdVviWP4mzpTCji2rUwhBNstp1lBhFC", "joe", "91 n south ave", "joeh@gmail.com", "1-224-500-9000");
+
 
 insert into reservation value (2000000001, 000000001, 1000000000, "5/31/18", "9:00AM");
 
 insert into dog value (999000001, 1000000000, "Cheeto", "Y", "Poodle", "brown", "super cute adorable dog!");
+insert into dog value (1000, 2000000, "gizmo", "Y", "dog", "brown", "good dog!");
+
 
 insert into dogwalker_schedule value (000000001, "9:00", "05-1-19", 1);
 insert into dogwalker_schedule value (000000001, "10:00", "05-1-19", 1);
@@ -152,5 +155,3 @@ insert into dogwalker_schedule value (000000002, "14:00", "05-2-19", 1);
 insert into dogwalker_schedule value (000000002, "15:00", "05-2-19", 1);
 insert into dogwalker_schedule value (000000002, "16:00", "05-2-19", 1);
 insert into dogwalker_schedule value (000000002, "17:00", "05-2-19", 1);
-
-  

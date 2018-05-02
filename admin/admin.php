@@ -6,9 +6,6 @@ include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/header.php';
 include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.inc.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/login/checkPwdUsr.php';
 
-//TODO let's clean up the admin part!
-//TODO create drop down lists for all the foreighn and primary keys
-
 if (isUserLoggedIn() == FALSE)
 {
   include 'admin_login.php';
@@ -28,14 +25,10 @@ catch (PDOException $e)
   exit();
 }
 
-
-
-
 foreach ($userx as $singleadmin):
   $bussinessID = 111111111;
   $zipcode = $singleadmin['zip_code'];
 endforeach;
-
 
 if (isset($_GET['addDogWalker']))
 {
@@ -44,7 +37,10 @@ if (isset($_GET['addDogWalker']))
 }
 
 try {
-    $sql2 = "SELECT d.dogwalker_ID, d.bussiness_ID, d.name, d.hourly_rate, d.years_worked, d.starRating, d.miles_traveled, d.zip_code FROM dog_walker d JOIN dogwalker_admin w ON w.zip_code = d.zip_code AND w.username = 'kyle'";
+    $sql2 = "SELECT d.dogwalker_ID, d.bussiness_ID, d.name, d.hourly_rate, d.years_worked,
+    d.starRating, d.miles_traveled, d.zip_code FROM dog_walker d
+    JOIN dogwalker_admin w ON w.zip_code = d.zip_code AND w.username = '$username'";
+
     $dogwalkersX= $pdo->query($sql2);
   } catch (PDOException $e2) {
     $error = 'Error for fetching dogwalkers: ' . $e2->getMessage();
@@ -54,10 +50,9 @@ try {
 
 try {
 
-    $sql3 = "SELECT r.reservation_ID, c.username, r.walking_date, r.walking_timeslot FROM reservation r JOIN client c ON r.client_ID = c.client_ID ORDER BY r.walking_date DESC LIMIT 5; "; //IN ORDER TO USE ORDER BY WE NEED TO USE Date and time format for the database
+    $sql3 = "SELECT r.reservation_ID, c.username, r.walking_date, r.walking_timeslot FROM reservation r
+    JOIN client c ON r.client_ID = c.client_ID ORDER BY r.walking_date DESC LIMIT 5; "; //IN ORDER TO USE ORDER BY WE NEED TO USE Date and time format for the database
     $reservationsX= $pdo->query($sql3);
-
-
   } catch (PDOException $e2) {
     $error = 'Error for fetching dogwalkers: ' . $e2->getMessage();
     include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/errors/error.php';

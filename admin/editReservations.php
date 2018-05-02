@@ -10,9 +10,8 @@ if (isUserLoggedIn() == FALSE)
   exit();
 }
 
-/*TODO MAKE QUERY MORE COMPLICTED AND GET INFO FROM THE username so that the query is only for the specific zip code */
 try{
-  $sql4 = "SELECT * FROM reservation";
+  $sql4 = "SELECT * FROM reservation r JOIN dogwalker_admin d ON r.dogwalker_ID = d.dogwalker_ID";
   $reservationsEDIT = $pdo->query($sql4);
 }
 catch (PDOException $e)
@@ -81,9 +80,6 @@ if(isset($_GET['submitUpdateRes']))
   header('Location: editReservations.php');
   exit();
 }
-
-
-
 
 include 'reservationList.html.php';
  ?>

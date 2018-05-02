@@ -7,10 +7,13 @@ if (isUserLoggedIn() == FALSE)
   include 'admin_login.php';
   exit();
 }
+$client_id2 = $_POST['editClient'];
+$username = $_SESSION['userlogin'];
+$zipcode = $_SESSION['zip_code'];
 
-/*MAKE QUERY MORE COMPLICTED AND GET INFO FROM THE username so that the query is only for the specific zip code */
 try{
-  $sql5 = "SELECT * FROM client";
+  $sql5 = "SELECT * FROM  client c WHERE c.client_ID = '$client_id2' ";
+
   $clientinfo = $pdo->query($sql5);
 }
 catch (PDOException $e)
@@ -19,6 +22,7 @@ catch (PDOException $e)
   include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/errors/error.php';
   exit();
 }
+
 ?>
 
 <!DOCTYPE html>

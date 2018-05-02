@@ -1,5 +1,18 @@
 <?php include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.inc.php';
-// use a more complex query/like create a table and use a join. 
+
+//Stats/Aggregate function Query:
+try{
+  $sql9 = "SELECT SUM(d.miles_traveled), AVG(d.years_worked) FROM dog_walker d; ";
+  $stats= $pdo->query($sql9);
+}
+catch (PDOException $e3)
+{
+  $error = 'Error fetching reservations: ' . $e3->getMessage();
+  include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/errors/error.php';
+  exit();
+}
+
+
  ?>
 <html>
   <head>
@@ -15,6 +28,19 @@
   </head>
 
   <body>
+    <p>Stats about our Dog Walkers!!!  </p>
+      <table>
+        <tr>
+            <td> <?php echo "Totol Miles Traveled" ?></td>
+            <td> <?php echo "Avg Years Worked" ?></td>
+        </tr>
+        <?php foreach ($stats as $stat):?>
+          <tr>
+              <td> <?php echo $stat[0] ?></td>
+              <td> <?php echo $stat[1] ?></td>
+          </tr>
+      </table>
+    <?php endforeach; ?>
     <p>Manage Reservations: </p>
     <form action="?reservation" method="get"> Would you like to make a new reservation?
      <input type="hidden" name="reservation">

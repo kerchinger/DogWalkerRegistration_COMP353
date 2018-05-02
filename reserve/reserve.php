@@ -6,22 +6,46 @@ session_start();
 $username = $_SESSION['userlogin'];
 
 if(isset($_GET['reservation'])){
+
+  if(isset($_POST['name']) trim($_POST['name'])=='')
+  {
+    echo "you did not enter all the fields.";
+  }
+
   include 'reservation_form.php';
   exit();
 }
 
+//TRIGGER
+try{
+  $sql2 = "DELIMITER $$
+CREATE OR REPLACE TRIGGER after_update_on_reservation
+    AFTER UPDATE ON reservation
+    FOR EACH ROW
+BEGIN
+    UPDATE dog_walker set new.miles_traveled = (old.miles_traveled +5)
+END$$
+DELIMITER ;";
+
+  $reservATIONS= $pdo->query($sql2);
+}
+
+catch (PDOException $e3)
+{
+  $error = 'Error fetching reservations: ' . $e3->getMessage();
+  include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/errors/error.php';
+  exit();
+}
+
+
+
 
 try{
-  //Ask for clarification on writing it
   $query = "(SELECT client_ID FROM client WHERE username = '{$username}')";
   $sql2 = "SELECT * FROM reservation WHERE client_ID= {$query}";
   $reservATIONS= $pdo->query($sql2);
-
-
-  /*
-  SELECT * FROM client WHERE client_ID IN (SELECT client_ID FROM reservation WHERE reservation_date="");
-  */
 }
+
 catch (PDOException $e3)
 {
   $error = 'Error fetching reservations: ' . $e3->getMessage();

@@ -46,7 +46,7 @@ catch (PDOException $e)
       </div>
       <div><label for="bussiness_ID">Bussiness ID:
          <input type="text" name="bussiness_ID"
-         value = <?php echo $walkerX['bussiness_ID']; ?> id="bussiness_ID"></label>
+         value = <?php echo $walkerX['bussiness_ID']; ?> readonly id="bussiness_ID"></label>
        </div>
       <div><label for="name">Name:
         <input type="text" name="name"
