@@ -94,7 +94,6 @@ $pdo->commit();
     $sql = 'UPDATE dogwalker_schedule SET
         `taken/free` = 0 WHERE time = :walking_timeslot AND date = :walking_date';
     $s = $pdo->prepare($sql);
-    //$s->bindValue(':reservation_ID', autdo);
     $s->bindValue(':walking_date', $_POST['walking_date']);
     $s->bindValue(':walking_timeslot', $_POST['walking_timeslot']);
     $s->execute();
@@ -106,12 +105,8 @@ $pdo->commit();
     exit();
   }
 
-
-
   header('Location: reserve.php');
   exit();
-
-
 }
 }
 
