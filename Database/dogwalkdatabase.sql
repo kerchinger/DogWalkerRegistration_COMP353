@@ -17,6 +17,7 @@ create table dogwalking_bussiness(
   `e_mail` varchar(30) NOT NULL,
   `phone_number` varchar(15) NOT NULL,
   `address` varchar(72) NOT NULL,
+  `numofclients` int,
   primary key (`bussiness_ID`)
 );
 
@@ -99,7 +100,7 @@ create table dogwalker_schedule(
 );
 
 /*Populating the table:  */
-insert into dogwalking_bussiness value (111111111, "dogwalk@gmail.com", "1-800-364-9255", "1000 DogWalking ln, Chicago, IL 60660");
+insert into dogwalking_bussiness value (111111111, "dogwalk@gmail.com", "1-800-364-9255", "1000 DogWalking ln, Chicago, IL 60660", 0);
 
 insert into dog_walker value (000000001, 111111111, "Serina", 15, 2, 4, 100, 60660);
 insert into dog_walker value (000000002, 111111111, "Will", 10, 1, 4, 5, 60660);

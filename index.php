@@ -52,22 +52,20 @@ Although you can use them, for a more unique website, replace these images with 
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>CaNine to Five Dog Walkers</h1>
+                <h1>CaNine 2 Five Dog Walkers</h1>
                 <p> A dog walking service you can rely on</p>
                 <a href="reserve/reserve_login.php" class="btn btn-primary btn-lg">Reserve now</a>
             </div>
         </div>
     </header>
 
-
-<!-- NEED TO INCLUDE A CALL TO THE DATABASE TO COLLECT THE HOTEL INFORMATION -->
 <?php
 
 include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/includes/db.inc.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/login/checkPwdUsr.php';
 logoutUser();
 
-Try
+try
 {
   $sql = 'SELECT * FROM `dogwalking_bussiness`';
   $dogbussiness_contactinfo = $pdo->query($sql);
@@ -78,6 +76,30 @@ catch (PDOException $e)
   include 'errors/error.php';
   exit();
 }
+/*
+try
+{
+  $sqltrigger = "DELIMITER $$
+  CREATE OR REPLACE TRIGGER `after_update_on_years_worked`
+      AFTER UPDATE ON `client`
+      FOR EACH ROW
+  BEGIN
+      INSERT INTO dogwalking_bussiness
+      SET action = 'update',
+      numofclients = numofclients + 1;
+  END $$
+  DELIMITER ;
+  ";
+  $trigger = $pdo->query($sqltrigger);
+}
+catch (PDOException $e)
+{
+  $error = 'Error creating trigger: ' . $e->getMessage();
+  include 'errors/error.php';
+  exit();
+}
+
+*/
 ?>
 
 	<!-- Footer -->

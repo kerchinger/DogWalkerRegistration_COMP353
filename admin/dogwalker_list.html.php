@@ -17,6 +17,7 @@ padding:2px;
     <p>Here are all your dog walkers for your Zip Code:</p>
     <p><a href="?editSchedule">Edit Schedule</a></p>
     <p><a href="?editClient">Edit Client</a></p>
+    <p><a href="?PromotionCandidates">Promotion Candidates</a></p>
 
     <table >
       <tr>

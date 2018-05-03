@@ -45,7 +45,6 @@ if(isset($_POST['submitReservation'])){
   if(empty($_POST['walking_date']) OR empty($_POST['walking_timeslot']) OR empty($_POST['dog']))
   {
     echo "You forgot to selecct a value in the field";
-    //header('Location: reservation_form.php') ;
   }else {
 
     try {
@@ -75,7 +74,6 @@ if(isset($_POST['submitReservation'])){
                 status = 1,
                 amount= 15,
                 date = '5-3-18'";
-
                 $pdo->query($sql2);
               }
                 catch (PDOException $e)

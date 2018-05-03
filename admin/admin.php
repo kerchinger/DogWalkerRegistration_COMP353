@@ -136,6 +136,11 @@ header('Location: editClientsInfo.php');
 exit();
 
 }
+if(isset($_GET['PromotionCandidates']))
+{
+  header('Location: promotionalcandidates.php ');
+  exit();
+}
 if(isset($_GET['submitUpdate']))
 {
   try
@@ -170,5 +175,8 @@ if(isset($_GET['submitUpdate']))
   header('Location: admin.php');
   exit();
 }
+
+
+
 
 include 'dogwalker_list.html.php';
