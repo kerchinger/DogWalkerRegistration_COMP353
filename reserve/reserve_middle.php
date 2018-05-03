@@ -50,6 +50,7 @@ if(isset($_POST['submitReservation'])){
     try {
         $pdo->beginTransaction();
           $reservationid = rand(100000000,999999999);
+          $invoiceid = rand(100000000,999999999);
           try
           {
             $sql = "INSERT INTO reservation SET
@@ -62,13 +63,14 @@ if(isset($_POST['submitReservation'])){
             }
               catch (PDOException $e)
             {
-              $error = 'Error adding new walker ' . $e->getMessage();
+              $error = 'Error adding new reservation ' . $e->getMessage();
               include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/errors/error.php';
               exit();
             }
             try
             {
               $sql2 = "INSERT INTO invoice SET
+                invoice_ID = '{$invoiceid}',
                 client_ID = 1000000000,
                 reservation_ID ='{$reservationid}',
                 status = 1,
@@ -78,7 +80,7 @@ if(isset($_POST['submitReservation'])){
               }
                 catch (PDOException $e)
               {
-                $error = 'Error adding new walker ' . $e->getMessage();
+                $error = 'Error adding new invoice ' . $e->getMessage();
                 include $_SERVER['DOCUMENT_ROOT'].'/DogWalkerRegistration_COMP353/errors/error.php';
                 exit();
               }

@@ -76,7 +76,7 @@ catch (PDOException $e)
   include 'errors/error.php';
   exit();
 }
-/*
+
 try
 {
   $sqltrigger = "DELIMITER $$
@@ -99,7 +99,7 @@ catch (PDOException $e)
   exit();
 }
 
-*/
+
 ?>
 
 	<!-- Footer -->
