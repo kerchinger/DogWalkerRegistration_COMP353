@@ -6,17 +6,14 @@ session_start();
 $username = $_SESSION['userlogin'];
 
 if(isset($_GET['reservation'])){
-
-  if(isset($_POST['name']) trim($_POST['name'])=='')
-  {
-    echo "you did not enter all the fields.";
-  }
-
-  include 'reservation_form.php';
+  include 'reserve_middle.php';
   exit();
 }
 
+
+
 //TRIGGER
+/*
 try{
   $sql2 = "DELIMITER $$
 CREATE OR REPLACE TRIGGER after_update_on_reservation
@@ -37,7 +34,7 @@ catch (PDOException $e3)
   exit();
 }
 
-
+*/
 
 
 try{

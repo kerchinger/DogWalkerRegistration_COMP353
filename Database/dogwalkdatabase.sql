@@ -21,7 +21,7 @@ create table dogwalking_bussiness(
 );
 
 create table dog_walker(
-  `dogwalker_ID` int(9) NOT NULL,
+  `dogwalker_ID` int(9) NOT NULL AUTO_INCREMENT,
   `bussiness_ID` int(9) NOT NULL,
   `name` varchar(30) NOT NULL,
   `hourly_rate` decimal(10,2) NOT NULL,
@@ -34,7 +34,7 @@ create table dog_walker(
 );
 
 create table client(
-  `client_ID` int(9) NOT NULL,
+  `client_ID` int(9) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL UNIQUE,
   `password` varchar(300) NOT NULL,
   `name` varchar(30) NOT NULL,
@@ -57,7 +57,7 @@ create table dog (
 );
 
 create table reservation(
-  `reservation_ID` int(9) NOT NULL,
+  `reservation_ID` int(9) NOT NULL AUTO_INCREMENT,
   `dogwalker_ID` int(9) NOT NULL,
   `client_ID` int(9) NOT NULL,
   `walking_date` varchar(10) NOT NULL,

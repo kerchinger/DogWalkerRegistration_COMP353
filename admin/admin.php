@@ -51,7 +51,8 @@ try {
 try {
 
     $sql3 = "SELECT r.reservation_ID, c.username, r.walking_date, r.walking_timeslot FROM reservation r
-    JOIN client c ON r.client_ID = c.client_ID ORDER BY r.walking_date DESC LIMIT 5; "; //IN ORDER TO USE ORDER BY WE NEED TO USE Date and time format for the database
+    JOIN client c ON r.client_ID = c.client_ID ORDER BY r.walking_date DESC LIMIT 5; ";
+    //IN ORDER TO USE ORDER BY WE NEED TO USE Date and time format for the database
     $reservationsX= $pdo->query($sql3);
   } catch (PDOException $e2) {
     $error = 'Error for fetching dogwalkers: ' . $e2->getMessage();

@@ -19,7 +19,7 @@
   </body>
   <body>
     <p>If you do not have an account, please make one:</p>
-    <form action="create_clientAccount.php" method="get"> Would you like to make a account?
+    <form action="createClient_middle.php" method="get"> Would you like to make a account?
      <input type="hidden" name="reservation">
     <input type="submit" value="Yes">
    </form>
